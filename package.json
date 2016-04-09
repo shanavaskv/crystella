@@ -1,0 +1,16 @@
+{
+  "name"    : "crystella",
+  "version" : "0.0.1",
+  "main"    : "main.js",
+  "author"  : "Shanavas K Veedu",
+  "license" : "GPL v3",
+  "scripts" : {
+    "build-mac": "electron-packager ./ crystella --platform=darwin --arch=x64 --version=0.37.5 --asar --ignore=binaries --icon=crystella.icns --overwrite && zip -r -y -X binaries/crystella-darwin-x64.zip crystella-darwin-x64/*",
+    "build-lin": "electron-packager ./ crystella --platform=linux --arch=x64 --version=0.37.5 --asar --ignore=binaries --overwrite && zip -r -y -X binaries/crystella-linux-x64.zip crystella-linux-x64/*",
+    "build-win": "electron-packager ./ crystella --platform=win32 --arch=ia32 --version=0.37.5 --asar --ignore=binaries --overwrite && zip -r -X binaries/crystella-win32-ia32.zip crystella-win32-ia32/*",
+    "build": "npm run build-mac && npm run build-lin && npm run build-win"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^0.37.5"
+  }
+}
