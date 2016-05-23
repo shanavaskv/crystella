@@ -2,7 +2,9 @@
 
 Crystella is a cross-platform 3D visualization code developed in [Electron](http://electron.atom.io) and WebGL javascript library [threejs](http:/threejs.org). It is in early develpment. So far, it can do:
 
-* Display a rotating cube
+* Display a cube
+* Display axes
+* Rotate and Zoom
 
 Please check back for more features!
 

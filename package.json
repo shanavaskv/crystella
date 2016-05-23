@@ -1,16 +1,36 @@
 {
   "name"    : "crystella",
+  "ProductName": "Crystella",
   "version" : "0.0.1",
   "main"    : "main.js",
   "author"  : "Shanavas K Veedu",
   "license" : "GPL v3",
   "scripts" : {
-    "build-mac": "electron-packager ./ crystella --platform=darwin --arch=x64 --version=0.37.5 --asar --ignore=binaries --icon=crystella.icns --overwrite && zip -r -y -X binaries/crystella-darwin-x64.zip crystella-darwin-x64/*",
-    "build-lin": "electron-packager ./ crystella --platform=linux --arch=x64 --version=0.37.5 --asar --ignore=binaries --overwrite && zip -r -y -X binaries/crystella-linux-x64.zip crystella-linux-x64/*",
-    "build-win": "electron-packager ./ crystella --platform=win32 --arch=ia32 --version=0.37.5 --asar --ignore=binaries --overwrite && zip -r -X binaries/crystella-win32-ia32.zip crystella-win32-ia32/*",
-    "build": "npm run build-mac && npm run build-lin && npm run build-win"
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "pack-mac": "electron-packager . --asar --platform=darwin --arch=x64 --version=1.0.2 --icon=assets/app-icon/mac/app.icns --prune=true --extend-info=assets/mac/info.plist --out=binaries --ignore=binaries --overwrite && zip -r -X binaries/crystella-darwin-x64.zip binaries/crystella-darwin-x64/*",
+    "pack-win": "electron-packager . crystella --asar  --platform=win32 --arch=ia32 --version=1.0.2 --prune=true --out=binaries --ignore=binaries --overwrite && zip -r -X binaries/crystella-win32-ia32.zip binaries/crystella-win32-ia32/*",
+    "pack-linux": "electron-packager . --asar --platform=linux --arch=x64 --version=1.0.2 --icon=assets/app-icon/png/app.png --prune=true --out=binaries --ignore=binaries --overwrite && zip -r -y -X binaries/crystella-linux-x64.zip binaries/crystella-linux-x64/*",
+    "package": "rm -rf binaries/* && npm run pack-mac && npm run pack-win && npm run pack-linux",
+    "installer": "node ./script/installer.js",
+    "prepare-release": "npm run package && npm run sign-exe && npm run installer && npm run sign-installer",
+    "release": "node ./script/release.js"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "devtron": "^1.0.0",
+    "electron-packager": "^7.0.1",
+    "electron-prebuilt": "~1.0.2",
+    "electron-winstaller": "^2.2.0",
+    "mocha": "^2.3.4",
+    "request": "^2.70.0",
+    "rimraf": "^2.5.2",
+    "signcode": "^0.4.0",
+    "spectron": "~3.0.0",
+    "standard": "^6.0.8"
   },
   "dependencies": {
-    "electron-prebuilt": "^0.37.5"
+    "three.js": "^0.77"
   }
 }
