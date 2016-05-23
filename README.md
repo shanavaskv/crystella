@@ -5,6 +5,7 @@ Crystella is a cross-platform 3D visualization code developed in [Electron](http
 * Display a cube
 * Display axes
 * Rotate and Zoom
+* Test
 
 Please check back for more features!
 
