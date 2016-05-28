@@ -4,13 +4,24 @@
   <meta charset="utf-8">
   <title>Crystella 1.0</title>
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
   <script src="system/three.min.js"></script>
   <script src="system/cryst.basics.js"></script>
   <script src="system/cryst.axes.js"></script>
   <script src="system/cryst.logview.js"></script>
   <script src="system/cryst.controls.js"></script>
+  <script src="system/cryst.menus.js"></script>
 </head>
 <body>
+  <nav class="menu-btn">
+    <i class="menu-ico fa fa-bars" aria-hidden="true"></i>
+  </nav>
+  <nav class="menu-top">
+    <ul id="menu-top-inner" class="menu-top-inner">
+    </ul>
+  </nav>
+  <div id="canvas"></div>
+	<!-- <div id="info"><a href="http://threejs.org" target="_blank">three.js webgl</a> - molecules</div> -->
   <script src="windows/mainw.js"></script>
 </body>
 </html>

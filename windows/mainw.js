@@ -15,10 +15,11 @@ init();
 animate();
 
 function init() {
-  container = document.createElement( 'div' );
-  document.body.appendChild( container );
+  // container = document.createElement( 'div' );
+  // document.body.appendChild( container );
+  container = document.getElementById('canvas');
 
-  renderer = new THREE.WebGLRenderer(antialias = true);
+  renderer = new THREE.WebGLRenderer( {antialias: true} );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( screenWidth, screenHeight );
   container.appendChild( renderer.domElement );
@@ -38,7 +39,14 @@ function init() {
   window.onresize = onWindowResize;
   controls = new CRYST.Controls( cube );
   axes = new CRYST.Axes();
+  menus = new CRYST.Menus();
   lview.log('ready.');
+
+  // var button = document.createElement( 'button' );
+  // button.innerHTML = 'open';
+  // menu.appendChild( button );
+  // var url = "models/molecules/" +  MOLECULES[ m ];
+  // button.addEventListener( 'click', generateButtonCallback( url ), false );
 }
 
 function onWindowResize() {
